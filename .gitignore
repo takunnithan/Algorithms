@@ -40,3 +40,7 @@ Thumbs.db
 ###############
 .idea/
 target/
+=======
+Java/.idea
+Java/.gradle
+Java/gradle
