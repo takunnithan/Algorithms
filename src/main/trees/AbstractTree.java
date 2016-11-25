@@ -3,7 +3,7 @@ package main.trees;
 /**
  * Created by takunnithan on 12-11-2016.
  */
-public abstract class AbstractTree<E> implements Tree{
+public abstract class AbstractTree<E> implements Tree<E>{
 
     @Override
     public boolean isExternal(Position p) throws IllegalArgumentException {

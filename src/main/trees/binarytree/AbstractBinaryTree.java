@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by takunnithan on 22-11-2016.
  */
-public abstract class AbstractBinaryTree<E> extends AbstractTree implements BinaryTree{
+public abstract class AbstractBinaryTree<E> extends AbstractTree<E> implements BinaryTree<E>{
 
     public Position<E> sibing(Position<E> p){
         Position<E> parent = parent(p);

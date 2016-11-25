@@ -6,7 +6,7 @@ import main.trees.Tree;
 /**
  * Created by takunnithan on 22-11-2016.
  */
-public interface BinaryTree<E> extends Tree {
+public interface BinaryTree<E> extends Tree<E> {
 
     Position<E> left(Position<E> p) throws IllegalArgumentException;
 
