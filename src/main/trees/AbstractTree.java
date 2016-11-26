@@ -1,12 +1,14 @@
 package main.trees;
 
+import main.trees.position.Position;
+
 /**
  * Created by takunnithan on 12-11-2016.
  */
 public abstract class AbstractTree<E> implements Tree<E>{
 
     @Override
-    public boolean isExternal(Position p) throws IllegalArgumentException {
+    public boolean isExternal(main.trees.position.Position p) throws IllegalArgumentException {
         return numChildren(p) > 0;
     }
 

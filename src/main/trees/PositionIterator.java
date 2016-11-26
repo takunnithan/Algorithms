@@ -9,11 +9,11 @@ import java.util.List;
  */
 public class PositionIterator<E> implements Iterator {
 
-    List<Position<E>> positions = new ArrayList<>();
+    List<main.trees.position.Position<E>> positions = new ArrayList<>();
 
     private int counter = 0;
 
-    public PositionIterator(List<Position<E>> positions){
+    public PositionIterator(List<main.trees.position.Position<E>> positions){
         this.positions = positions;
     }
 

@@ -1,6 +1,7 @@
 package main.trees;
 
 import java.util.Iterator;
+import main.trees.position.Position;
 
 /**
  * Created by takunnithan on 12-11-2016.
@@ -15,7 +16,7 @@ public interface Tree<E> extends Iterable<E> {
 
     int numChildren(Position<E> p) throws IllegalArgumentException;
 
-    boolean isExternal(Position<E> p) throws IllegalArgumentException;
+    boolean isExternal(main.trees.position.Position p) throws IllegalArgumentException;
 
     boolean isInternal(Position<E> p) throws IllegalArgumentException;
 

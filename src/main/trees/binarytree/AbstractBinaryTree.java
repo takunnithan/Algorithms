@@ -1,7 +1,7 @@
 package main.trees.binarytree;
 
 import main.trees.AbstractTree;
-import main.trees.Position;
+import main.trees.position.Position;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,8 +32,8 @@ public abstract class AbstractBinaryTree<E> extends AbstractTree<E> implements B
         return count;
     }
 
-    public Iterable<Position<E>> children(Position<E> p){
-        List<Position<E>> snapshot = new ArrayList<>(2);
+    public Iterable<main.trees.position.Position<E>> children(Position<E> p){
+        List<main.trees.position.Position<E>> snapshot = new ArrayList<main.trees.position.Position<E>>(2);
         if(left(p) != null)
             snapshot.add(left(p));
 

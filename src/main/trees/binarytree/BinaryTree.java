@@ -1,7 +1,7 @@
 package main.trees.binarytree;
 
-import main.trees.Position;
 import main.trees.Tree;
+import main.trees.position.Position;
 
 /**
  * Created by takunnithan on 22-11-2016.
