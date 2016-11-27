@@ -116,14 +116,78 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
         return root;
     }
 
+    public Position<E> addLeft(Position<E> p , E e){
+        Node<E> parent = validate(p);
+        if(parent.getLeft() != null)
+            throw new IllegalArgumentException("P already has a left child");
+        Node<E> child = createNode(e, parent, null, null);
+        parent.setLeft(child);
+        size++;
+        return child;
+    }
 
+    public Position<E> addRight(Position<E> p , E e){
+        Node<E> parent = validate(p);
+        if(parent.getRight() != null)
+            throw new IllegalArgumentException("p already has a right child");
+        Node<E> child = createNode(e, parent, null, null);
+        parent.setRight(child);
+        size++;
+        return child;
+    }
 
+    public E set(Position<E> p, E e){
+        Node<E> node = validate(p);
+        E temp = node.getElement();
+        node.setElement(e);
+        return temp;
+    }
 
+    public void attach(Position<E> p, LinkedBinaryTree<E> t1, LinkedBinaryTree<E> t2){
+        Node<E> node = validate(p);
 
+        if(isInternal(p))
+            throw new IllegalArgumentException("p must be a leaf node");
 
+        size+= t1.size() + t2.size();
+        if(!t1.isEmpty()){
+            t2.root.setParent(node);
+            node.setLeft(t1.root);
+            t1.root = null;
+            t1.size = 0;
+        }
 
+        if(!t2.isEmpty()){
+            t2.root.setParent(node);
+            node.setRight(t2.root);
+            t2.root = null;
+            t2.size = 0;
+        }
+    }
 
-
-
+    public E remove(Position<E> p){
+        Node<E> node = validate(p);
+         if(numChildren(p) == 2)
+             throw new IllegalArgumentException("p has two children");
+        Node<E> child = (node.getLeft() != null? node.getLeft(): node.getRight());
+        if(child != null)
+            child.setParent(node.getParent());
+        if(node == root)
+            root = child;
+        else{
+            Node<E> parent = node.getParent();
+            if (node == parent.getLeft())
+                parent.setLeft(child);
+            else
+                parent.setRight(child);
+        }
+        size--;
+        E temp = node.getElement();
+        node.setElement(null);
+        node.setLeft(null);
+        node.setRight(null);
+        node.setParent(node);
+        return temp;
+    }
 
 }
