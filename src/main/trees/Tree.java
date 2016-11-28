@@ -6,7 +6,7 @@ import main.trees.position.Position;
 /**
  * Created by takunnithan on 12-11-2016.
  */
-public interface Tree<E> extends Iterable<E> {
+public interface Tree<E>{
 
     Position<E> root();
 
@@ -26,8 +26,8 @@ public interface Tree<E> extends Iterable<E> {
 
     boolean isEmpty();
 
-    Iterator<E> iterator();
+//    Iterator<E> iterator();
 
-    Iterable<Position<E>> positions();
+//    Iterable<Position<E>> positions();
 
 }
