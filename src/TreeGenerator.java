@@ -1,9 +1,5 @@
-import javafx.geometry.Pos;
 import main.trees.GeneralTree;
 import main.trees.position.Position;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by takunnithan on 25-01-2017.
@@ -25,6 +21,19 @@ public class TreeGenerator {
         }
 
         System.out.println(generalTree.parent(first).getElement());
+
+
+        // Post Order Traversal
+        System.out.println("------------------POST-ORDER-TRAVERSAL-----------------------");
+        for(Position<String> p:generalTree.postorder()){
+            System.out.println(p.getElement());
+        }
+
+        // Pre order traversal
+        System.out.println("---------------------PRE-ORDER-TRAVERSAL--------------------");
+        for(Position<String> p:generalTree.preorder()){
+            System.out.println(p.getElement());
+        }
 
     }
 }
