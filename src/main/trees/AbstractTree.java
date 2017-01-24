@@ -1,6 +1,11 @@
 package main.trees;
 
+import javafx.geometry.Pos;
 import main.trees.position.Position;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * Created by takunnithan on 12-11-2016.
@@ -43,6 +48,32 @@ public abstract class AbstractTree<E> implements Tree<E>{
         }
         return h;
     }
+
+    private class ElementIterator implements Iterator<E> {
+        Iterator<Position<E>> postIterator = positions().iterator();
+        public boolean hasNext(){ return postIterator.hasNext();}
+        public E next(){return postIterator.next().getElement();}
+        public void remove(){postIterator.remove();}
+    }
+
+    public Iterable<Position<E>> positions(){
+        return preorder();
+    }
+
+    private void preorderSubtree(Position<E> p, List<Position<E>> snapshot) {
+        snapshot.add(p);
+        for(Position<E> c : children(p)){
+            preorderSubtree(c,snapshot);
+        }
+    }
+
+    public Iterable<Position<E>> preorder(){
+        List<Position<E>> snapshot = new ArrayList<Position<E>>();
+        if(!isEmpty())
+            preorderSubtree(root(), snapshot);
+        return snapshot;
+    }
+
 
 
 }

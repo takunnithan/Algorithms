@@ -4,6 +4,7 @@ import main.trees.AbstractTree;
 import main.trees.position.Position;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -42,9 +43,5 @@ public abstract class AbstractBinaryTree<E> extends AbstractTree<E> implements B
 
         return snapshot;
     }
-
-
-
-
 
 }
