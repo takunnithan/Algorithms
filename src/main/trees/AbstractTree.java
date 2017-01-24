@@ -1,6 +1,5 @@
 package main.trees;
 
-import javafx.geometry.Pos;
 import main.trees.position.Position;
 
 import java.util.ArrayList;
@@ -13,7 +12,7 @@ import java.util.List;
 public abstract class AbstractTree<E> implements Tree<E>{
 
     @Override
-    public boolean isExternal(main.trees.position.Position p) throws IllegalArgumentException {
+    public boolean isExternal(Position p) throws IllegalArgumentException {
         return numChildren(p) > 0;
     }
 
