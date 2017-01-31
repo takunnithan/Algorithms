@@ -92,7 +92,7 @@ public abstract class AbstractTree<E> implements Tree<E>{
     /**
      * Return an iterable collection of positions<E>
      *     which is traversed using breadth first algorithm.
-     * @return Iterable 
+     * @return Iterable
      */
     public Iterable<Position<E>> breadthFirst(){
         List<Position<E>> snapshot = new ArrayList<>();
