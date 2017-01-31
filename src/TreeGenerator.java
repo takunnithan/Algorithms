@@ -1,5 +1,7 @@
 import main.trees.GeneralTree;
+import main.trees.binarytree.LinkedBinaryTree;
 import main.trees.position.Position;
+import sun.awt.image.ImageWatched;
 
 /**
  * Created by takunnithan on 25-01-2017.
@@ -7,6 +9,9 @@ import main.trees.position.Position;
 public class TreeGenerator {
 
     public static void main(String[] args) {
+
+        // General Tree traversal
+
         GeneralTree<String> generalTree = new GeneralTree<>();
         Position<String> root = generalTree.addRoot("Cars");
         Position<String> bmw = generalTree.createNode("BMW",root);
@@ -19,15 +24,6 @@ public class TreeGenerator {
         generalTree.addChildren(bmw,m3);
         generalTree.addChildren(bmw,m4);
         generalTree.addChildren(mcLaren,p1);
-
-        System.out.println(generalTree.numChildren(root));
-        System.out.println(generalTree.root().getElement());
-        for(Position<String> child: generalTree.children(root)){
-            System.out.println(generalTree.getElement(child));
-        }
-
-        System.out.println(generalTree.parent(bmw).getElement());
-
 
         // Post Order Traversal
         System.out.println("------------------POST-ORDER-TRAVERSAL-----------------------");
@@ -44,6 +40,23 @@ public class TreeGenerator {
         // Breadth First traversal
         System.out.println("---------------------BREADTH-FIRST-TRAVERSAL--------------------");
         for(Position<String> p:generalTree.breadthFirst()){
+            System.out.println(p.getElement());
+        }
+
+
+        // Binary Tree Traversal
+
+        LinkedBinaryTree<String> binaryTree = new LinkedBinaryTree<>();
+        Position<String> binaryRoot = binaryTree.addRoot("Cars");
+        Position<String> binaryBmw = binaryTree.addLeft(binaryRoot, "BMW");
+        Position<String> binaryMcLaren = binaryTree.addRight(binaryRoot, "McLaren");
+        binaryTree.addLeft(binaryBmw, "M3");
+        binaryTree.addRight(binaryBmw, "M4");
+        binaryTree.addLeft(binaryMcLaren, "P1");
+
+        // In order traversal
+        System.out.println("---------------------In-Order-TRAVERSAL--------------------");
+        for(Position<String> p:binaryTree.inorderTraversal()){
             System.out.println(p.getElement());
         }
 
