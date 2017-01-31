@@ -5,6 +5,8 @@ import main.trees.position.Position;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Queue;
+import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * Created by takunnithan on 12-11-2016.
@@ -87,6 +89,25 @@ public abstract class AbstractTree<E> implements Tree<E>{
         return snapshot;
     }
 
-
+    /**
+     * Return an iterable collection of positions<E>
+     *     which is traversed using breadth first algorithm.
+     * @return Iterable 
+     */
+    public Iterable<Position<E>> breadthFirst(){
+        List<Position<E>> snapshot = new ArrayList<>();
+        if (!isEmpty()){
+            Queue<Position<E>> itemQueue = new LinkedBlockingQueue<>();
+            itemQueue.add(root());
+            while(!itemQueue.isEmpty()){
+                Position<E> p = itemQueue.remove();
+                snapshot.add(p);
+                for( Position<E> child : children(p)){
+                    itemQueue.add(child);
+                }
+            }
+        }
+        return snapshot;
+    }
 
 }
